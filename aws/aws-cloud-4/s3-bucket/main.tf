@@ -26,3 +26,11 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "bk26537628_sse" {
     }
   }
 }
+
+resource "aws_s3_bucket_versioning" "bk26537628_versioning" {
+  bucket = aws_s3_bucket.bk26537628.id
+
+  versioning_configuration {
+    status = "Disabled"
+  }
+}
