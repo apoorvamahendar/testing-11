@@ -2,7 +2,7 @@ resource "aws_s3_bucket_versioning" "bk26537628_versioning" {
   bucket = "bk26537628"
 
   versioning_configuration {
-    status = "Suspended"
+    status = "Enabled"
   }
 }
 
@@ -34,8 +34,8 @@ resource "aws_s3_bucket" "bk26537628" {
   force_destroy = true
 
   tags = {
-    Name      = "bk26537628"
     ManagedBy = "cloud-agentra"
+    Stack     = "s3-bucket"
   }
 
   depends_on = [aws_s3_bucket_public_access_block.bk26537628_public_access_block]
