@@ -26,3 +26,5 @@ terraform.rc
 Thumbs.db
 .vscode/
 .idea/
+# OpenTofu provider cache (keep out of the repo)
+**/.tf_data/*
