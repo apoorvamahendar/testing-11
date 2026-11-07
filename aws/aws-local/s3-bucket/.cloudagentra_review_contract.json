@@ -1,1 +1,1 @@
-{"operation": "create", "target_addresses": ["aws_s3_bucket.bk_123617919", "aws_s3_bucket_public_access_block.bk_123617919_pab", "aws_s3_bucket_server_side_encryption_configuration.bk_123617919_sse"]}
+{"operation": "create", "target_addresses": ["aws_s3_bucket.bk_2828981288", "aws_s3_bucket_public_access_block.bk_2828981288_pab", "aws_s3_bucket_server_side_encryption_configuration.bk_2828981288_sse"]}
