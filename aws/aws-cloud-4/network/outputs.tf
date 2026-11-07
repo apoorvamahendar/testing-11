@@ -8,6 +8,11 @@ output "public_subnet_id" {
   value       = aws_subnet.public_subnet.id
 }
 
+output "security_group_id" {
+  description = "ID of the web+SSH security group"
+  value       = aws_security_group.web_ssh_sg.id
+}
+
 output "internet_gateway_id" {
   description = "ID of the Internet Gateway"
   value       = aws_internet_gateway.igw.id
@@ -16,9 +21,4 @@ output "internet_gateway_id" {
 output "public_route_table_id" {
   description = "ID of the public route table"
   value       = aws_route_table.public_rt.id
-}
-
-output "security_group_id" {
-  description = "ID of the web+SSH security group"
-  value       = aws_security_group.web_ssh_sg.id
 }
