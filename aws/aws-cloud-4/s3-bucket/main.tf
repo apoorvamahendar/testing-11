@@ -77,3 +77,40 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "bk_36739239_sse" 
     }
   }
 }
+
+# ──────────────────────────────────────────────
+# Internet Gateway
+# ──────────────────────────────────────────────
+resource "aws_internet_gateway" "igw" {
+  vpc_id = "vpc-08e19a4dac5d16c9c"
+
+  tags = {
+    Name  = "vpc-234567898-igw"
+    Stack = "s3-bucket"
+  }
+}
+
+# ──────────────────────────────────────────────
+# Public Route Table
+# ──────────────────────────────────────────────
+resource "aws_route_table" "public_rt" {
+  vpc_id = "vpc-08e19a4dac5d16c9c"
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+
+  tags = {
+    Name  = "vpc-234567898-public-rt"
+    Stack = "s3-bucket"
+  }
+}
+
+# ──────────────────────────────────────────────
+# Route Table Association - public subnet
+# ──────────────────────────────────────────────
+resource "aws_route_table_association" "public_rt_assoc" {
+  subnet_id      = "subnet-0c1a74c9eff35cc04"
+  route_table_id = aws_route_table.public_rt.id
+}
